@@ -21,8 +21,11 @@ export const convertDateToStr = (posts) => {
     for (let key in posts[i]) {
       newPost[key] = posts[i][key];
     }
-    const dateInStr =
+    let dateInStr =
       newPost.date.toDateString() + " " + newPost.date.toTimeString();
+
+    dateInStr = dateInStr.split(" GMT")[0];
+
     newPost.date = dateInStr;
     newPosts.push(newPost);
   }
